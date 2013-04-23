@@ -9,9 +9,19 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVFoundation/AVPlayer.h>
+#import <AVFoundation/AVPlayer.h>
 
 @interface ViewController : UIViewController
-<AVAudioPlayerDelegate>
+<AVAudioPlayerDelegate,AVAudioRecorderDelegate> {
+    NSURL *SoundPath;
+    IBOutlet UIButton *recordOrStopButton;
+    bool recording;
+    AVAudioRecorder *soundRecorder;
+}
 - (IBAction)facePressed:(id)sender;
 
+
+@property(nonatomic,retain) NSURL *SoundPath;
+@property(nonatomic,retain) AVAudioRecorder *soundRecorder;
+- (IBAction) recordOrStop: (id) sender;
 @end

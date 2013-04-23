@@ -15,11 +15,21 @@
 @end
 
 @implementation ViewController
+@synthesize soundRecorder;
+@synthesize SoundPath;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //AVAUdioRecorder Setup:
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir =[paths objectAtIndex:0];
+    NSString *soundFilePath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+    NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    self.SoundPath=newURL;
+    recording = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -31,7 +41,7 @@
 // This is when you would call the mouth up and down movements
 - (IBAction)facePressed:(id)sender {
     //Rate is most likely temporary... It's hardly pitch.
-    [self initializeAVAudioPlayer:@"heykids" fileExtension:@".mp3" Volume:1.0f Rate:2.0f];
+    [self initializeAVAudioPlayer:@"mysound" fileExtension:@".caf" Volume:1.0f Rate:1.5f];
     [player play];
 }
 
@@ -53,10 +63,25 @@
 
 // Call initializeAVAudioPlayer with something similar to:
 
+/*
+ NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+ NSString *dir = [paths objectAtIndex:0];
+ dir = [dir stringByAppendingPathComponent:@"AppDir"];
+ dir = [dir stringByAppendingPathComponent:[self getSongName]];
+ dir = [dir stringByAppendingPathExtension:@"caf"];
+ player = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:dir]
+ [player.delegate = self];
+ [player play];
+ */
+
 
 - (void)initializeAVAudioPlayer:(NSString*) name fileExtension:(NSString*)fileExtension Volume:(float) volume Rate:(float) rate {
-    NSString *stringPath = [[NSBundle mainBundle]pathForResource:name ofType:fileExtension];
-    NSURL *url = [NSURL fileURLWithPath:stringPath];
+    //NSString *stringPath = [[NSBundle mainBundle]pathForResource:name ofType:fileExtension];
+    //NSURL *url = [NSURL fileURLWithPath:stringPath];
+    
+    NSString* temp = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* documentsPath = [temp stringByAppendingPathComponent:@"mysound.caf"];
+    NSURL *url = [NSURL fileURLWithPath:documentsPath];
     
     NSError *error;
     
@@ -74,6 +99,37 @@
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)data successfully:(BOOL)flag{
     NSLog(@"It finished playing!");
 }
+
+- (IBAction) recordOrStop: (id) sender {
+    if (recording) {
+        [soundRecorder stop];
+        recording = NO;
+        self.soundRecorder = nil;
+        [recordOrStopButton setTitle: @"Record" forState:UIControlStateNormal];
+        [recordOrStopButton setTitle: @"Record" forState:UIControlStateHighlighted];
+        [[AVAudioSession sharedInstance] setActive: NO error: nil];
+        [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: nil];
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+    } else {
+        [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryRecord error: nil];
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        NSDictionary *recordSettings =[[NSDictionary alloc] initWithObjectsAndKeys:
+                                       [NSNumber numberWithFloat: 44100.0], AVSampleRateKey,
+                                       [NSNumber numberWithInt: kAudioFormatAppleLossless], AVFormatIDKey,
+                                       [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+                                       [NSNumber numberWithInt: AVAudioQualityMax], AVEncoderAudioQualityKey, nil];
+        AVAudioRecorder *newRecorder =[[AVAudioRecorder alloc] initWithURL: SoundPath
+                                                                  settings: recordSettings error: nil];
+        soundRecorder = newRecorder;
+        soundRecorder.delegate = self;
+        [soundRecorder prepareToRecord];
+        [soundRecorder record];
+        [recordOrStopButton setTitle: @"Stop" forState: UIControlStateNormal];
+        [recordOrStopButton setTitle: @"Stop" forState: UIControlStateHighlighted];
+        recording = YES;
+    }
+}
+
 
 
 

@@ -42,6 +42,19 @@
                                     <segue destination="s1w-Cz-iBr" kind="modal" id="nV5-Xh-Bx4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2m-NJ-9hA">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordOrStop:" destination="2" eventType="touchUpInside" id="eNY-TB-XCK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -50,12 +63,17 @@
                             <constraint firstItem="yVk-Hl-wli" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="399-fh-8mR"/>
                             <constraint firstItem="qxZ-5F-BIs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="4g1-ls-mlI"/>
                             <constraint firstItem="qxZ-5F-BIs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="5ne-6c-Ji6"/>
+                            <constraint firstAttribute="bottom" secondItem="c2m-NJ-9hA" secondAttribute="bottom" constant="26" id="Cn3-Wc-rW3"/>
                             <constraint firstAttribute="bottom" secondItem="sDU-Na-clG" secondAttribute="bottom" constant="5" id="ESs-ab-kyK"/>
                             <constraint firstItem="yVk-Hl-wli" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="R8I-hf-X8F"/>
+                            <constraint firstItem="c2m-NJ-9hA" firstAttribute="centerX" secondItem="qxZ-5F-BIs" secondAttribute="centerX" type="default" id="a6K-qU-ZgK"/>
                             <constraint firstItem="qxZ-5F-BIs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="c4g-Yg-49i"/>
                             <constraint firstItem="qxZ-5F-BIs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="xLe-XR-bwM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordOrStopButton" destination="c2m-NJ-9hA" id="Ius-k7-qr3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,23 +127,6 @@
         <image name="The Face of Hesus.png" width="1538" height="2365"/>
         <image name="Transparent-Smaller.png" width="293" height="369"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TextViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backPressed:"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="facePressed:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
