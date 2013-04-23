@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVFoundation/AVPlayer.h>
 
 @interface ViewController : UIViewController
+<AVAudioPlayerDelegate>
 - (IBAction)facePressed:(id)sender;
 
 @end
