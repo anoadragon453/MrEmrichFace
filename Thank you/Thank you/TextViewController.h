@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TextViewController.h
 //  Thank you
 //
 //  Created by Andrew Morgan on 4/22/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-- (IBAction)facePressed:(id)sender;
+@interface TextViewController : UIViewController
+- (IBAction)backPressed:(id)sender;
 
 @end
