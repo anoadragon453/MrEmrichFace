@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController (){
-     AVAudioPlayer *player;
+    AVAudioPlayer *player;
 }
 
 @end
@@ -30,7 +30,8 @@
 
 // This is when you would call the mouth up and down movements
 - (IBAction)facePressed:(id)sender {
-    [self initializeAVAudioPlayer:@"heykids" fileExtension:@".mp3" Volume:1.0f];
+    //Rate is most likely temporary... It's hardly pitch.
+    [self initializeAVAudioPlayer:@"heykids" fileExtension:@".mp3" Volume:1.0f Rate:2.0f];
     [player play];
 }
 
@@ -53,7 +54,7 @@
 // Call initializeAVAudioPlayer with something similar to:
 
 
-- (void)initializeAVAudioPlayer:(NSString*) name fileExtension:(NSString*)fileExtension Volume:(float) volume {
+- (void)initializeAVAudioPlayer:(NSString*) name fileExtension:(NSString*)fileExtension Volume:(float) volume Rate:(float) rate {
     NSString *stringPath = [[NSBundle mainBundle]pathForResource:name ofType:fileExtension];
     NSURL *url = [NSURL fileURLWithPath:stringPath];
     
@@ -64,6 +65,10 @@
     player.delegate = self;
     
     [player setVolume:volume];
+    if(rate != 1.0f){
+        player.enableRate = YES;
+        player.rate = rate;
+    }
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)data successfully:(BOOL)flag{
