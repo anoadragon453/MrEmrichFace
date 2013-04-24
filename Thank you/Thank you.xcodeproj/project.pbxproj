@@ -23,6 +23,8 @@
 		49C3ACA3172633140065F3E9 /* TextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C3ACA2172633140065F3E9 /* TextViewController.m */; };
 		49C3ACA5172634940065F3E9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C3ACA4172634940065F3E9 /* AVFoundation.framework */; };
 		49C3ACA7172635DE0065F3E9 /* heykids.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACA6172635DE0065F3E9 /* heykids.mp3 */; };
+		49C3ACB2172736940065F3E9 /* EmrichFaceOpenMouth in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACB1172736940065F3E9 /* EmrichFaceOpenMouth */; };
+		49C3ACB61727372A0065F3E9 /* EmrichFaceChin.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACB51727372A0065F3E9 /* EmrichFaceChin.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		49C3ACA2172633140065F3E9 /* TextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewController.m; sourceTree = "<group>"; };
 		49C3ACA4172634940065F3E9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		49C3ACA6172635DE0065F3E9 /* heykids.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heykids.mp3; sourceTree = "<group>"; };
+		49C3ACB1172736940065F3E9 /* EmrichFaceOpenMouth */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmrichFaceOpenMouth; sourceTree = "<group>"; };
+		49C3ACB51727372A0065F3E9 /* EmrichFaceChin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmrichFaceChin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,8 @@
 				490FAF1D1725DEAB00F5AEA6 /* main.m */,
 				490FAF1F1725DEAB00F5AEA6 /* Thank you-Prefix.pch */,
 				49C3ACA6172635DE0065F3E9 /* heykids.mp3 */,
+				49C3ACB1172736940065F3E9 /* EmrichFaceOpenMouth */,
+				49C3ACB51727372A0065F3E9 /* EmrichFaceChin.png */,
 				490FAF231725DEAB00F5AEA6 /* Default.png */,
 				490FAF251725DEAB00F5AEA6 /* Default@2x.png */,
 				490FAF271725DEAB00F5AEA6 /* Default-568h@2x.png */,
@@ -184,6 +190,8 @@
 				490FAF351725DEE500F5AEA6 /* The Face of Hesus.png in Resources */,
 				49C3ACA01726301E0065F3E9 /* Transparent-Smaller.png in Resources */,
 				49C3ACA7172635DE0065F3E9 /* heykids.mp3 in Resources */,
+				49C3ACB2172736940065F3E9 /* EmrichFaceOpenMouth in Resources */,
+				49C3ACB61727372A0065F3E9 /* EmrichFaceChin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

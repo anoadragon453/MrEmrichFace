@@ -17,6 +17,7 @@
 @implementation ViewController
 @synthesize soundRecorder;
 @synthesize SoundPath;
+@synthesize chin;
 
 - (void)viewDidLoad
 {
@@ -41,13 +42,71 @@
 // This is when you would call the mouth up and down movements
 - (IBAction)facePressed:(id)sender {
     //Rate is most likely temporary... It's hardly pitch.
+    
+    [self mouthMove];
+    
     [self initializeAVAudioPlayer:@"mysound" fileExtension:@".caf" Volume:1.0f Rate:1.5f];
     [player play];
+    
 }
 
-// Something like this
 - (void)mouthMove{
     // Make the mouth move up and down. Doesn't have to match the voice...
+    
+    //while(true){
+        //[self mouthMoveDown];
+        [self performSelector:@selector(mouthMoveDown) withObject:nil afterDelay:1.0 ];
+        //[self mouthMoveUp];
+        [self performSelector:@selector(mouthMoveUp) withObject:nil afterDelay:1.0 ];
+    //}
+}
+
+- (void)mouthMoveDown{
+    
+    CGRect chinFrame = self.chin.frame;
+    chinFrame.origin.y = 360;
+    NSLog(@"Move mouth down!");
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    self.chin.frame = chinFrame;
+    
+    [UIView commitAnimations];
+     /*
+    [UIView animateWithDuration:1
+                     animations:^{
+                         CGRect chinFrame = self.chin.frame;
+                         chinFrame.origin.y = 360;
+                         NSLog(@"Move mouth down!");
+                         [UIView beginAnimations:nil context:nil];
+                         [UIView setAnimationDuration:0.5];
+                         //[UIView setAnimationDelay:.5];
+                         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+                         
+                         self.chin.frame = chinFrame;
+                         
+                         [UIView commitAnimations];}
+                     completion:^(BOOL finished){
+                         
+                         NSLog(@"Finished!");
+                     }
+     ];*/
+}
+
+- (void)mouthMoveUp{
+    CGRect chinFrame = self.chin.frame;
+    chinFrame.origin.y = 320;
+    NSLog(@"Move mouth up!");
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:1.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    self.chin.frame = chinFrame;
+    
+    [UIView commitAnimations];
 }
 
 - (void)mouthStop{
@@ -98,6 +157,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)data successfully:(BOOL)flag{
     NSLog(@"It finished playing!");
+    [self mouthStop];
 }
 
 - (IBAction) recordOrStop: (id) sender {

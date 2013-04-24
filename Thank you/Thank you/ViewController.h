@@ -23,5 +23,6 @@
 
 @property(nonatomic,retain) NSURL *SoundPath;
 @property(nonatomic,retain) AVAudioRecorder *soundRecorder;
+@property (strong, nonatomic) IBOutlet UIImageView *chin;
 - (IBAction) recordOrStop: (id) sender;
 @end

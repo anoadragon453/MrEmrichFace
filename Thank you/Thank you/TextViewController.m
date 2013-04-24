@@ -36,6 +36,6 @@
 }
 
 - (IBAction)backPressed:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil]; // Not good programming >:D
 }
 @end

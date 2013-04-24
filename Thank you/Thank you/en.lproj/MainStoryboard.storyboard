@@ -12,7 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="The Face of Hesus.png" translatesAutoresizingMaskIntoConstraints="NO" id="qxZ-5F-BIs"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EmrichFaceOpenMouth" translatesAutoresizingMaskIntoConstraints="NO" id="8te-EF-TCC"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVk-Hl-wli">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="548" id="6wW-uG-DnQ"/>
@@ -55,23 +55,32 @@
                                     <action selector="recordOrStop:" destination="2" eventType="touchUpInside" id="eNY-TB-XCK"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="EmrichFaceChin.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gu2-Pg-teN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="BHQ-IL-PC7"/>
+                                    <constraint firstAttribute="width" constant="122" id="qow-Lj-S6M"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8te-EF-TCC" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="058-fI-9tp"/>
                             <constraint firstAttribute="trailing" secondItem="sDU-Na-clG" secondAttribute="trailing" constant="7" id="0CU-cH-F9P"/>
                             <constraint firstItem="yVk-Hl-wli" firstAttribute="top" secondItem="3" secondAttribute="top" constant="-36" id="1jP-v5-UoN"/>
                             <constraint firstItem="yVk-Hl-wli" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="399-fh-8mR"/>
-                            <constraint firstItem="qxZ-5F-BIs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="4g1-ls-mlI"/>
-                            <constraint firstItem="qxZ-5F-BIs" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="5ne-6c-Ji6"/>
+                            <constraint firstAttribute="bottom" secondItem="Gu2-Pg-teN" secondAttribute="bottom" constant="88" id="8dt-Az-C14"/>
                             <constraint firstAttribute="bottom" secondItem="c2m-NJ-9hA" secondAttribute="bottom" constant="26" id="Cn3-Wc-rW3"/>
                             <constraint firstAttribute="bottom" secondItem="sDU-Na-clG" secondAttribute="bottom" constant="5" id="ESs-ab-kyK"/>
                             <constraint firstItem="yVk-Hl-wli" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="R8I-hf-X8F"/>
-                            <constraint firstItem="c2m-NJ-9hA" firstAttribute="centerX" secondItem="qxZ-5F-BIs" secondAttribute="centerX" type="default" id="a6K-qU-ZgK"/>
-                            <constraint firstItem="qxZ-5F-BIs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="c4g-Yg-49i"/>
-                            <constraint firstItem="qxZ-5F-BIs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="xLe-XR-bwM"/>
+                            <constraint firstItem="8te-EF-TCC" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Yus-ve-cAx"/>
+                            <constraint firstItem="Gu2-Pg-teN" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="148" id="Zeb-Wy-YiJ"/>
+                            <constraint firstItem="c2m-NJ-9hA" firstAttribute="centerX" secondItem="8te-EF-TCC" secondAttribute="centerX" type="default" id="aPi-tL-5jV"/>
+                            <constraint firstItem="8te-EF-TCC" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="c2O-tz-NCg"/>
+                            <constraint firstItem="8te-EF-TCC" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="eDH-t8-ABh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chin" destination="Gu2-Pg-teN" id="BRf-bE-Jbf"/>
                         <outlet property="recordOrStopButton" destination="c2m-NJ-9hA" id="Ius-k7-qr3"/>
                     </connections>
                 </viewController>
@@ -124,9 +133,30 @@
         </scene>
     </scenes>
     <resources>
-        <image name="The Face of Hesus.png" width="1538" height="2365"/>
+        <image name="EmrichFaceChin.png" width="563" height="591"/>
+        <image name="EmrichFaceOpenMouth" width="1538" height="2365"/>
         <image name="Transparent-Smaller.png" width="293" height="369"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backPressed:"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="facePressed:"/>
+                <relationship kind="action" name="recordOrStop:"/>
+                <relationship kind="outlet" name="chin" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="recordOrStopButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
