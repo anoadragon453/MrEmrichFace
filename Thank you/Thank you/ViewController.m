@@ -3,13 +3,15 @@
 //  Thank you
 //
 //  Created by Andrew Morgan on 4/22/13.
-//  Copyright (c) 2013 Andrew Morgan. All rights reserved.
+//  Copyright (c) 2013 Andrew Morgan & Adrian McClure. All rights reserved.
 //
 
 #import "ViewController.h"
 
 @interface ViewController (){
     AVAudioPlayer *player;
+    BOOL finishedPlaying;
+    BOOL flag;
 }
 
 @end
@@ -22,15 +24,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    //AVAUdioRecorder Setup:
+
+    //AVAudioRecorder Setup:
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir =[paths objectAtIndex:0];
     NSString *soundFilePath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
     NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
     self.SoundPath=newURL;
     recording = NO;
+    flag = true;
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,104 +41,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-// This is when you would call the mouth up and down movements
 - (IBAction)facePressed:(id)sender {
     //Rate is most likely temporary... It's hardly pitch.
-    
-    [self mouthMove];
-    
+
     [self initializeAVAudioPlayer:@"mysound" fileExtension:@".caf" Volume:1.0f Rate:1.5f];
     [player play];
-    
+    finishedPlaying = false;
+    [self moveMouth:6];
 }
 
-- (void)mouthMove{
-    // Make the mouth move up and down. Doesn't have to match the voice...
+-(void)moveMouth:(int)steps
+{
+    // check for end of loop
+    if (steps == 0) return;
     
-    //while(true){
-        //[self mouthMoveDown];
-        [self performSelector:@selector(mouthMoveDown) withObject:nil afterDelay:1.0 ];
-        //[self mouthMoveUp];
-        [self performSelector:@selector(mouthMoveUp) withObject:nil afterDelay:1.0 ];
-    //}
+    // Enemy NE
+    if(flag == true){
+        [UIView animateWithDuration:.2
+                         animations:^{ chin.center = CGPointMake(chin.center.x, chin.center.y + 30);}
+                         completion:^(BOOL finished){flag = false;[self moveMouth:steps];}];
+    }else{
+        [UIView animateWithDuration:.2
+                         animations:^{ chin.center = CGPointMake(chin.center.x, chin.center.y - 30);}
+                         completion:^(BOOL finished){flag = true;if(finishedPlaying == false){[self moveMouth:steps];}}];
+    }
+    
+    // Enemy NW
 }
-
-- (void)mouthMoveDown{
-    
-    CGRect chinFrame = self.chin.frame;
-    chinFrame.origin.y = 360;
-    NSLog(@"Move mouth down!");
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationDelay:0];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
-    self.chin.frame = chinFrame;
-    
-    [UIView commitAnimations];
-     /*
-    [UIView animateWithDuration:1
-                     animations:^{
-                         CGRect chinFrame = self.chin.frame;
-                         chinFrame.origin.y = 360;
-                         NSLog(@"Move mouth down!");
-                         [UIView beginAnimations:nil context:nil];
-                         [UIView setAnimationDuration:0.5];
-                         //[UIView setAnimationDelay:.5];
-                         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-                         
-                         self.chin.frame = chinFrame;
-                         
-                         [UIView commitAnimations];}
-                     completion:^(BOOL finished){
-                         
-                         NSLog(@"Finished!");
-                     }
-     ];*/
-}
-
-- (void)mouthMoveUp{
-    CGRect chinFrame = self.chin.frame;
-    chinFrame.origin.y = 320;
-    NSLog(@"Move mouth up!");
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationDelay:1.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
-    self.chin.frame = chinFrame;
-    
-    [UIView commitAnimations];
-}
-
-- (void)mouthStop{
-    // Make the Mouth return to the original position, ok if its not animated.
-}
-
-// Also need to initialize an AVAudioPlayer, like so:
-// AVAudioPlayer *player;
-
-// After initialization, the [player play] needs to run, where player is the AVAudioPlayer variable.
-
-// You also need to make your interface in .h look like: @interface GirlAndBunnyViewController : UIViewController<AVAudioPlayerDelegate>
-
-// Call initializeAVAudioPlayer with something similar to:
-
-/*
- NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
- NSString *dir = [paths objectAtIndex:0];
- dir = [dir stringByAppendingPathComponent:@"AppDir"];
- dir = [dir stringByAppendingPathComponent:[self getSongName]];
- dir = [dir stringByAppendingPathExtension:@"caf"];
- player = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL fileURLWithPath:dir]
- [player.delegate = self];
- [player play];
- */
-
 
 - (void)initializeAVAudioPlayer:(NSString*) name fileExtension:(NSString*)fileExtension Volume:(float) volume Rate:(float) rate {
-    //NSString *stringPath = [[NSBundle mainBundle]pathForResource:name ofType:fileExtension];
-    //NSURL *url = [NSURL fileURLWithPath:stringPath];
     
     NSString* temp = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* documentsPath = [temp stringByAppendingPathComponent:@"mysound.caf"];
@@ -157,7 +90,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)data successfully:(BOOL)flag{
     NSLog(@"It finished playing!");
-    [self mouthStop];
+    finishedPlaying = true;
 }
 
 - (IBAction) recordOrStop: (id) sender {
@@ -189,10 +122,5 @@
         recording = YES;
     }
 }
-
-
-
-
-
 
 @end

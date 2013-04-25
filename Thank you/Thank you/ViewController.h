@@ -3,7 +3,7 @@
 //  Thank you
 //
 //  Created by Andrew Morgan on 4/22/13.
-//  Copyright (c) 2013 Andrew Morgan. All rights reserved.
+//  Copyright (c) 2013 Andrew Morgan & Adrian McClure. All rights reserved.v
 //
 
 #import <UIKit/UIKit.h>
