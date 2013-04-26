@@ -7,11 +7,14 @@
 //
 
 #import "ViewController.h"
+//#import "cocos2d.h"
+//#import "SimpleAudioEngine.h"
 
 @interface ViewController (){
     AVAudioPlayer *player;
     BOOL finishedPlaying;
     BOOL flag;
+    NSString *pathForSimpleAudioEngine;
 }
 
 @end
@@ -29,6 +32,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir =[paths objectAtIndex:0];
     NSString *soundFilePath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+    pathForSimpleAudioEngine = soundFilePath;
     NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
     self.SoundPath=newURL;
     recording = NO;
@@ -44,8 +48,10 @@
 - (IBAction)facePressed:(id)sender {
     //Rate is most likely temporary... It's hardly pitch.
 
-    [self initializeAVAudioPlayer:@"mysound" fileExtension:@".caf" Volume:1.0f Rate:1.5f];
-    [player play];
+    //[self initializeAVAudioPlayer:@"mysound" fileExtension:@".caf" Volume:1.0f Rate:1.5f];
+    //[player play];
+    //NSString *path = [NSTemporaryDirectory() stringAppendingString:@"someSound.caf"];
+    //[[SimpleAudioEngine sharedEngine] playEffect:pathForSimpleAudioEngine];
     finishedPlaying = false;
     [self moveMouth:6];
 }

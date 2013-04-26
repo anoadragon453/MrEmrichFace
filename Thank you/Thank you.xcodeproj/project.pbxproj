@@ -25,6 +25,18 @@
 		49C3ACA7172635DE0065F3E9 /* heykids.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACA6172635DE0065F3E9 /* heykids.mp3 */; };
 		49C3ACB2172736940065F3E9 /* EmrichFaceOpenMouth in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACB1172736940065F3E9 /* EmrichFaceOpenMouth */; };
 		49C3ACB61727372A0065F3E9 /* EmrichFaceChin.png in Resources */ = {isa = PBXBuildFile; fileRef = 49C3ACB51727372A0065F3E9 /* EmrichFaceChin.png */; };
+		49C3ACB81729977B0065F3E9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C3ACB71729977B0065F3E9 /* Accelerate.framework */; };
+		49CCEF0E1729A96A0010C7B6 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCEF0D1729A96A0010C7B6 /* OpenGLES.framework */; };
+		49CCEF101729A96F0010C7B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCEF0F1729A96F0010C7B6 /* QuartzCore.framework */; };
+		49CCF0791729BD710010C7B6 /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF06C1729BD710010C7B6 /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		49CCF07A1729BD710010C7B6 /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF06F1729BD710010C7B6 /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		49CCF07B1729BD710010C7B6 /* CDXMacOSXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF0711729BD710010C7B6 /* CDXMacOSXSupport.m */; };
+		49CCF07D1729BD710010C7B6 /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF0751729BD710010C7B6 /* CocosDenshion.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		49CCF07E1729BD710010C7B6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 49CCF0761729BD710010C7B6 /* README.md */; };
+		49CCF07F1729BD710010C7B6 /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF0781729BD710010C7B6 /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		49CCF0811729BE050010C7B6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCF0801729BE050010C7B6 /* AudioToolbox.framework */; };
+		49CCF0831729BE0C0010C7B6 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCF0821729BE0C0010C7B6 /* OpenAL.framework */; };
+		49CCF0861729BF0A0010C7B6 /* CCFileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CCF0851729BF0A0010C7B6 /* CCFileUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +64,26 @@
 		49C3ACA6172635DE0065F3E9 /* heykids.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heykids.mp3; sourceTree = "<group>"; };
 		49C3ACB1172736940065F3E9 /* EmrichFaceOpenMouth */ = {isa = PBXFileReference; lastKnownFileType = file; path = EmrichFaceOpenMouth; sourceTree = "<group>"; };
 		49C3ACB51727372A0065F3E9 /* EmrichFaceChin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmrichFaceChin.png; sourceTree = "<group>"; };
+		49C3ACB71729977B0065F3E9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		49CCEF0D1729A96A0010C7B6 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		49CCEF0F1729A96F0010C7B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		49CCF06B1729BD710010C7B6 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
+		49CCF06C1729BD710010C7B6 /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
+		49CCF06D1729BD710010C7B6 /* CDConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDConfig.h; sourceTree = "<group>"; };
+		49CCF06E1729BD710010C7B6 /* CDOpenALSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDOpenALSupport.h; sourceTree = "<group>"; };
+		49CCF06F1729BD710010C7B6 /* CDOpenALSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOpenALSupport.m; sourceTree = "<group>"; };
+		49CCF0701729BD710010C7B6 /* CDXMacOSXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDXMacOSXSupport.h; sourceTree = "<group>"; };
+		49CCF0711729BD710010C7B6 /* CDXMacOSXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDXMacOSXSupport.m; sourceTree = "<group>"; };
+		49CCF0741729BD710010C7B6 /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
+		49CCF0751729BD710010C7B6 /* CocosDenshion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocosDenshion.m; sourceTree = "<group>"; };
+		49CCF0761729BD710010C7B6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		49CCF0771729BD710010C7B6 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
+		49CCF0781729BD710010C7B6 /* SimpleAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine.m; sourceTree = "<group>"; };
+		49CCF0801729BE050010C7B6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		49CCF0821729BE0C0010C7B6 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		49CCF0841729BF0A0010C7B6 /* CCFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFileUtils.h; sourceTree = "<group>"; };
+		49CCF0851729BF0A0010C7B6 /* CCFileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFileUtils.m; sourceTree = "<group>"; };
+		49CCF0871729C09B0010C7B6 /* ccTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CCF0831729BE0C0010C7B6 /* OpenAL.framework in Frameworks */,
+				49CCF0811729BE050010C7B6 /* AudioToolbox.framework in Frameworks */,
+				49CCEF101729A96F0010C7B6 /* QuartzCore.framework in Frameworks */,
+				49CCEF0E1729A96A0010C7B6 /* OpenGLES.framework in Frameworks */,
+				49C3ACB81729977B0065F3E9 /* Accelerate.framework in Frameworks */,
 				49C3ACA5172634940065F3E9 /* AVFoundation.framework in Frameworks */,
 				490FAF121725DEAB00F5AEA6 /* UIKit.framework in Frameworks */,
 				490FAF141725DEAB00F5AEA6 /* Foundation.framework in Frameworks */,
@@ -89,6 +126,11 @@
 		490FAF101725DEAB00F5AEA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49CCF0821729BE0C0010C7B6 /* OpenAL.framework */,
+				49CCF0801729BE050010C7B6 /* AudioToolbox.framework */,
+				49CCEF0F1729A96F0010C7B6 /* QuartzCore.framework */,
+				49CCEF0D1729A96A0010C7B6 /* OpenGLES.framework */,
+				49C3ACB71729977B0065F3E9 /* Accelerate.framework */,
 				49C3ACA4172634940065F3E9 /* AVFoundation.framework */,
 				490FAF111725DEAB00F5AEA6 /* UIKit.framework */,
 				490FAF131725DEAB00F5AEA6 /* Foundation.framework */,
@@ -107,6 +149,10 @@
 				490FAF2D1725DEAB00F5AEA6 /* ViewController.m */,
 				49C3ACA1172633140065F3E9 /* TextViewController.h */,
 				49C3ACA2172633140065F3E9 /* TextViewController.m */,
+				49CCF0841729BF0A0010C7B6 /* CCFileUtils.h */,
+				49CCF0851729BF0A0010C7B6 /* CCFileUtils.m */,
+				49CCF0871729C09B0010C7B6 /* ccTypes.h */,
+				49CCF06A1729BD710010C7B6 /* CocosDenshion */,
 				490FAF181725DEAB00F5AEA6 /* Supporting Files */,
 			);
 			path = "Thank you";
@@ -129,6 +175,25 @@
 				490FAF271725DEAB00F5AEA6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49CCF06A1729BD710010C7B6 /* CocosDenshion */ = {
+			isa = PBXGroup;
+			children = (
+				49CCF06B1729BD710010C7B6 /* CDAudioManager.h */,
+				49CCF06C1729BD710010C7B6 /* CDAudioManager.m */,
+				49CCF06D1729BD710010C7B6 /* CDConfig.h */,
+				49CCF06E1729BD710010C7B6 /* CDOpenALSupport.h */,
+				49CCF06F1729BD710010C7B6 /* CDOpenALSupport.m */,
+				49CCF0701729BD710010C7B6 /* CDXMacOSXSupport.h */,
+				49CCF0711729BD710010C7B6 /* CDXMacOSXSupport.m */,
+				49CCF0741729BD710010C7B6 /* CocosDenshion.h */,
+				49CCF0751729BD710010C7B6 /* CocosDenshion.m */,
+				49CCF0761729BD710010C7B6 /* README.md */,
+				49CCF0771729BD710010C7B6 /* SimpleAudioEngine.h */,
+				49CCF0781729BD710010C7B6 /* SimpleAudioEngine.m */,
+			);
+			path = CocosDenshion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +257,7 @@
 				49C3ACA7172635DE0065F3E9 /* heykids.mp3 in Resources */,
 				49C3ACB2172736940065F3E9 /* EmrichFaceOpenMouth in Resources */,
 				49C3ACB61727372A0065F3E9 /* EmrichFaceChin.png in Resources */,
+				49CCF07E1729BD710010C7B6 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +272,12 @@
 				490FAF221725DEAB00F5AEA6 /* AppDelegate.m in Sources */,
 				490FAF2E1725DEAB00F5AEA6 /* ViewController.m in Sources */,
 				49C3ACA3172633140065F3E9 /* TextViewController.m in Sources */,
+				49CCF0791729BD710010C7B6 /* CDAudioManager.m in Sources */,
+				49CCF07A1729BD710010C7B6 /* CDOpenALSupport.m in Sources */,
+				49CCF07B1729BD710010C7B6 /* CDXMacOSXSupport.m in Sources */,
+				49CCF07D1729BD710010C7B6 /* CocosDenshion.m in Sources */,
+				49CCF07F1729BD710010C7B6 /* SimpleAudioEngine.m in Sources */,
+				49CCF0861729BF0A0010C7B6 /* CCFileUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +364,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Thank you/Thank you-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/Thank you/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "Thank you/Thank you-Info.plist";
+				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -303,7 +379,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Thank you/Thank you-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${SRCROOT}/Thank you/kazmath/include\"",
+				);
 				INFOPLIST_FILE = "Thank you/Thank you-Info.plist";
+				OTHER_LDFLAGS = "-lz";
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
